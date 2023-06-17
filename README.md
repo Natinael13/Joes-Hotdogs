@@ -5,6 +5,6 @@ The user puts in their order and the following is displayed: Items ordered, quan
 
 # What I Gained
 
+* Practice creating an interactive experience using Javascript
 * Practice with HTML
-* Practice with Javascript
 * Practice with CSS
