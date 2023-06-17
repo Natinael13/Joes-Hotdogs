@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="hotdogstyle.css">
+    <title>Joe's Hotdogs</title>
+</head>
+<body>
+    <h1>Joe's Hotdogs</h2>
+
+    <div class="row">
+        <div class="column" style="background-color:rgb(171, 173, 2);">
+            <h2>Category:</h2>
+            <p>hotdogsordered: </p> <br />
+            <p>friesordered: </p> <br />
+            <p>sodasordered: </p> <br />
+            <p>subtotal: </p> <br />
+            <p>discountedtotal: </p> <br />
+            <p>discount: </p> <br />
+            <p>tax: </p> <br />
+            <p>finaltotal: </p> <br />
+        </div>
+        <div class="column" style="background-color:rgb(218, 221, 20);">
+            <h2>Value:</h2>
+            <p id="hotdogsordered"></p> <br />
+            <p id="friesordered"></p> <br />
+            <p id="sodasordered"></p> <br />
+            <p id="subtotal"></p> <br />
+            <p id="discountedtotal"></p> <br />
+            <p id="discount"></p> <br />
+            <p id="tax"></p> <br />
+            <p id="finaltotal"></p> <br />
+        </div>
+    </div>
+    <script language="javascript">
+        var hotdogPrice = 3.75, friesPrice = 2.00, sodaPrice = 1.80;
+        var hotdogsOrdered = prompt("How many hotdogs would you like?", 0);
+        var friesOrdered = prompt("How many fries would you like?", 0);
+        var sodasOrdered = prompt("How many sodas would you like?", 0);
+
+        var hotdogTotal, friesTotal, sodasTotal;
+        hotdogTotal = hotdogPrice * hotdogsOrdered;
+        friesTotal = friesPrice * friesOrdered;
+        sodasTotal = sodaPrice * sodasOrdered;
+
+        var subtotal, discountedtotal, finaltotal, subtotalPercent, discount, tax;
+        subtotal = hotdogTotal + friesTotal + sodasTotal;
+        subtotalPercent = subtotal/100;
+        
+        if(subtotal >= 20.00){
+            discount = subtotalPercent * 10;
+            discountedtotal = subtotal - discount;
+            subtotalPercent = discountedtotal/100;
+        }
+        else{
+            discount = 0;
+            discountedtotal = subtotal;
+        }
+        
+        tax = subtotalPercent * 6.25;
+        finaltotal = discountedtotal + tax;
+    
+        document.getElementById("hotdogsordered").innerHTML = hotdogsOrdered;
+        document.getElementById("friesordered").innerHTML = friesOrdered;
+        document.getElementById("sodasordered").innerHTML = sodasOrdered;
+        document.getElementById("subtotal").innerHTML = "$" + subtotal.toFixed(2);
+        document.getElementById("discountedtotal").innerHTML = "$" + discountedtotal.toFixed(2);
+        document.getElementById("discount").innerHTML = "$" + discount.toFixed(2);
+        document.getElementById("tax").innerHTML = "$" + tax.toFixed(2);
+        document.getElementById("finaltotal").innerHTML = "$" + finaltotal.toFixed(2);
+
+        
+        
+    </script>
+</body>
+</html>
